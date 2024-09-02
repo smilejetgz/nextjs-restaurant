@@ -11,7 +11,7 @@ import Image from "next/image";
 
 const Content = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-10">
+    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-10 xl:w-[90%] mx-auto">
       <Card>
         <CardHeader>
           <CardTitle>Product name</CardTitle>
