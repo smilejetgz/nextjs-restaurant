@@ -102,8 +102,8 @@ const Header = () => {
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Sign in</DropdownMenuItem>
-            <DropdownMenuItem>Sign up</DropdownMenuItem>
+            <DropdownMenuItem><Link href={'/login'} >Sign in</Link></DropdownMenuItem>
+            <DropdownMenuItem><Link href={'/register'} >Sign up</Link></DropdownMenuItem>
             
           </DropdownMenuContent>
         </DropdownMenu>

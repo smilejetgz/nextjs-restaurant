@@ -11,18 +11,18 @@ const Footer = () => {
         </div>
 
         <div className="flex space-x-6">
-          <a href="#" className="text-sm hover:text-gray-400">
+          <Link href="#" className="text-sm hover:text-gray-400">
             About Us
-          </a>
-          <a href="#" className="text-sm hover:text-gray-400">
+          </Link>
+          <Link href="#" className="text-sm hover:text-gray-400">
             Services
-          </a>
-          <a href="#" className="text-sm hover:text-gray-400">
+          </Link>
+          <Link href="#" className="text-sm hover:text-gray-400">
             Contact
-          </a>
-          <a href="#" className="text-sm hover:text-gray-400">
+          </Link>
+          <Link href="#" className="text-sm hover:text-gray-400">
             Privacy Policy
-          </a>
+          </Link>
         </div>
 
         <div className="flex space-x-4 mt-6 md:mt-0">
