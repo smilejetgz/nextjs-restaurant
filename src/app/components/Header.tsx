@@ -11,6 +11,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ModeToggle } from "./ModeToggle";
+import Cart from "./Cart";
 
 const Header = () => {
   return (
@@ -92,6 +94,8 @@ const Header = () => {
             />
           </div>
         </form>
+        <Cart />
+        <ModeToggle />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">

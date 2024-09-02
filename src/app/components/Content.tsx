@@ -33,7 +33,7 @@ const Content = () => {
           </CardDescription>
         </CardContent>
         <CardFooter className="justify-end">
-          <Button>Add Card</Button>
+          <Button>Add Cart</Button>
         </CardFooter>
       </Card>
       <Card>
@@ -57,7 +57,7 @@ const Content = () => {
           </CardDescription>
         </CardContent>
         <CardFooter className="justify-end">
-          <Button>Add Card</Button>
+          <Button>Add Cart</Button>
         </CardFooter>
       </Card>
       <Card>
@@ -81,7 +81,7 @@ const Content = () => {
           </CardDescription>
         </CardContent>
         <CardFooter className="justify-end">
-          <Button>Add Card</Button>
+          <Button>Add Cart</Button>
         </CardFooter>
       </Card>
       <Card>
@@ -105,7 +105,7 @@ const Content = () => {
           </CardDescription>
         </CardContent>
         <CardFooter className="justify-end">
-          <Button>Add Card</Button>
+          <Button>Add Cart</Button>
         </CardFooter>
       </Card>
       <Card>
@@ -129,7 +129,7 @@ const Content = () => {
           </CardDescription>
         </CardContent>
         <CardFooter className="justify-end">
-          <Button>Add Card</Button>
+          <Button>Add Cart</Button>
         </CardFooter>
       </Card>
       <Card>
@@ -153,7 +153,7 @@ const Content = () => {
           </CardDescription>
         </CardContent>
         <CardFooter className="justify-end">
-          <Button>Add Card</Button>
+          <Button>Add Cart</Button>
         </CardFooter>
       </Card>
       <Card>
@@ -177,7 +177,7 @@ const Content = () => {
           </CardDescription>
         </CardContent>
         <CardFooter className="justify-end">
-          <Button>Add Card</Button>
+          <Button>Add Cart</Button>
         </CardFooter>
       </Card>
       <Card>
@@ -201,7 +201,7 @@ const Content = () => {
           </CardDescription>
         </CardContent>
         <CardFooter className="justify-end">
-          <Button>Add Card</Button>
+          <Button>Add Cart</Button>
         </CardFooter>
       </Card>
       <Card>
@@ -225,7 +225,7 @@ const Content = () => {
           </CardDescription>
         </CardContent>
         <CardFooter className="justify-end">
-          <Button>Add Card</Button>
+          <Button>Add Cart</Button>
         </CardFooter>
       </Card>
       <Card>
@@ -249,7 +249,7 @@ const Content = () => {
           </CardDescription>
         </CardContent>
         <CardFooter className="justify-end">
-          <Button>Add Card</Button>
+          <Button>Add Cart</Button>
         </CardFooter>
       </Card>
     </div>
