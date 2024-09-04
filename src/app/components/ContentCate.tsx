@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button'; // นำเข้า Button
+import { Button } from '@/components/ui/button'; 
 
 const ContentCate = () => {
   const router = useRouter();
@@ -12,7 +12,7 @@ const ContentCate = () => {
     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-10">
       {pathname.includes('/categories/Tea') && (
         <>
-          {/* ข้อมูลที่เกี่ยวข้องกับ Tea */}
+         
           <Card>
             <CardHeader>
               <CardTitle>Tea Product</CardTitle>
@@ -34,7 +34,6 @@ const ContentCate = () => {
       )}
       {pathname.includes('/categories/Juice') && (
         <>
-          {/* ข้อมูลที่เกี่ยวข้องกับ Juice */}
           <Card>
             <CardHeader>
               <CardTitle>Juice Product</CardTitle>
