@@ -28,7 +28,7 @@ export default function RootLayout({
         >
           <div className="flex min-h-screen w-full flex-col">
             <Header />
-            <main className="flex flex-1 flex-col gap-4 bg-gray-100 p-4 md:gap-8 md:p-10">
+            <main className="flex flex-1 flex-col gap-4 bg-stone-200 p-4 dark:bg-stone-700 md:gap-8 md:p-10">
               {children}
             </main>
             <Footer></Footer>
