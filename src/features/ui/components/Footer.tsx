@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Twitter } from 'lucide-react';
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import Link from 'next/link';
 
 const Footer = () => {
@@ -27,13 +27,13 @@ const Footer = () => {
 
         <div className="mt-6 flex space-x-4 md:mt-0">
           <Link href="#" className="hover:text-gray-400">
-            <Facebook className="h-6 w-6" />
+            <FaFacebook className="h-6 w-6" />
           </Link>
           <Link href="#" className="hover:text-gray-400">
-            <Instagram className="h-6 w-6" />
+            <FaInstagram className="h-6 w-6" />
           </Link>
           <Link href="#" className="hover:text-gray-400">
-            <Twitter className="h-6 w-6" />
+            <FaTwitter className="h-6 w-6" />
           </Link>
         </div>
       </div>

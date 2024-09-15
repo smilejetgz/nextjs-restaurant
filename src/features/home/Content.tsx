@@ -12,7 +12,7 @@ import Image from 'next/image';
 const Content = () => {
   return (
     <div className="mx-auto grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-3 md:gap-8 lg:grid-cols-5 lg:gap-10 xl:w-[90%]">
-      <Card>
+      <Card className="border-none">
         <CardHeader>
           <CardTitle>Product name</CardTitle>
         </CardHeader>
@@ -36,7 +36,7 @@ const Content = () => {
           <Button>Add Cart</Button>
         </CardFooter>
       </Card>
-      <Card>
+      <Card className="border-none">
         <CardHeader>
           <CardTitle>Product name</CardTitle>
         </CardHeader>
@@ -60,7 +60,7 @@ const Content = () => {
           <Button>Add Cart</Button>
         </CardFooter>
       </Card>
-      <Card>
+      <Card className="border-none">
         <CardHeader>
           <CardTitle>Product name</CardTitle>
         </CardHeader>
@@ -84,7 +84,7 @@ const Content = () => {
           <Button>Add Cart</Button>
         </CardFooter>
       </Card>
-      <Card>
+      <Card className="border-none">
         <CardHeader>
           <CardTitle>Product name</CardTitle>
         </CardHeader>
@@ -108,7 +108,7 @@ const Content = () => {
           <Button>Add Cart</Button>
         </CardFooter>
       </Card>
-      <Card>
+      <Card className="border-none">
         <CardHeader>
           <CardTitle>Product name</CardTitle>
         </CardHeader>
@@ -132,7 +132,7 @@ const Content = () => {
           <Button>Add Cart</Button>
         </CardFooter>
       </Card>
-      <Card>
+      <Card className="border-none">
         <CardHeader>
           <CardTitle>Product name</CardTitle>
         </CardHeader>
@@ -156,7 +156,7 @@ const Content = () => {
           <Button>Add Cart</Button>
         </CardFooter>
       </Card>
-      <Card>
+      <Card className="border-none">
         <CardHeader>
           <CardTitle>Product name</CardTitle>
         </CardHeader>
@@ -180,7 +180,7 @@ const Content = () => {
           <Button>Add Cart</Button>
         </CardFooter>
       </Card>
-      <Card>
+      <Card className="border-none">
         <CardHeader>
           <CardTitle>Product name</CardTitle>
         </CardHeader>
@@ -204,7 +204,7 @@ const Content = () => {
           <Button>Add Cart</Button>
         </CardFooter>
       </Card>
-      <Card>
+      <Card className="border-none">
         <CardHeader>
           <CardTitle>Product name</CardTitle>
         </CardHeader>
@@ -228,7 +228,7 @@ const Content = () => {
           <Button>Add Cart</Button>
         </CardFooter>
       </Card>
-      <Card>
+      <Card className="border-none">
         <CardHeader>
           <CardTitle>Product name</CardTitle>
         </CardHeader>
