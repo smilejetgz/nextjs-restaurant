@@ -1,8 +1,12 @@
-import { CircleUser, Menu, Search, Package2 } from "lucide-react";
-import Link from "next/link";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { CircleUser, Menu, Search, Package2 } from 'lucide-react';
+import Link from 'next/link';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from '@/features/shadcn/components/ui/sheet';
+import { Button } from '@/features/shadcn/components/ui/button';
+import { Input } from '@/features/shadcn/components/ui/input';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,17 +14,17 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { ModeToggle } from "./ModeToggle";
-import Cart from "./Cart";
+} from '@/features/shadcn/components/ui/dropdown-menu';
+import { ModeToggle } from './ModeToggle';
+import Cart from './Cart';
 
 const Header = () => {
   return (
-    <header className=" top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 ">
+    <header className="top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <Link
           href="/home"
-          className="flex items-center gap-2 text-1xl font-semibold md:text-xl text-nowrap"
+          className="text-1xl flex items-center gap-2 text-nowrap font-semibold md:text-xl"
         >
           Name of business
         </Link>
@@ -36,20 +40,23 @@ const Header = () => {
         >
           Categories
           <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="secondary" size="icon" className="rounded-full">
-              <CircleUser className="h-5 w-5" />
-              <span className="sr-only">Toggle user menu</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Categories</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem><Link href={'/tea'} >Sign in</Link></DropdownMenuItem>
-            <DropdownMenuItem><Link href={'/juice'} >Sign up</Link></DropdownMenuItem>
-            
-          </DropdownMenuContent>
-        </DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="secondary" size="icon" className="rounded-full">
+                <CircleUser className="h-5 w-5" />
+                <span className="sr-only">Toggle user menu</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>Categories</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <Link href={'/tea'}>Sign in</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={'/juice'}>Sign up</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </Link>
       </nav>
       <Sheet>
@@ -121,9 +128,12 @@ const Header = () => {
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem><Link href={'/login'} >Sign in</Link></DropdownMenuItem>
-            <DropdownMenuItem><Link href={'/register'} >Sign up</Link></DropdownMenuItem>
-            
+            <DropdownMenuItem>
+              <Link href={'/login'}>Sign in</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href={'/register'}>Sign up</Link>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

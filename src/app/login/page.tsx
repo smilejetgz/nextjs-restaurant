@@ -5,14 +5,14 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+} from '@/features/shadcn/components/ui/card';
+import { Input } from '@/features/shadcn/components/ui/input';
+import Link from 'next/link';
+import { Button } from '@/features/shadcn/components/ui/button';
 
 const LoginPage = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex min-h-screen items-center justify-center">
       <Card className="w-[450px]">
         <CardHeader>
           <CardTitle>Sign In</CardTitle>
@@ -27,8 +27,8 @@ const LoginPage = () => {
         </CardContent>
         <CardFooter>
           <Link
-            className="text-blue-300 underline text-sm hover:text-blue-700"
-            href={"/register"}
+            className="text-sm text-blue-300 underline hover:text-blue-700"
+            href={'/register'}
           >
             go to register page
           </Link>

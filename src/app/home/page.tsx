@@ -1,7 +1,5 @@
-import Content from "../components/Content";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import PaginationPage from "../components/Pagination";
+import Content from '@/features/home/Content';
+import PaginationPage from '@/features/home/Pagination';
 
 const HomePage = () => {
   return (
