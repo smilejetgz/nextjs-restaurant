@@ -5,12 +5,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always"
   },
-  "eslint.validate": [
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
   "[javascript]": {
     "editor.formatOnSave": false
   },
@@ -31,7 +26,8 @@
   },
   "files.eol": "\n",
   "typescript.preferences.importModuleSpecifier": "non-relative",
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": ["clsx", "lucide"]
   // "github.copilot.enable": {
   //   "typescript": false
   // }

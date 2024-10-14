@@ -1,11 +1,34 @@
-import Content from '@/features/home/Content';
-import PaginationPage from '@/features/home/Pagination';
+'use client';
+
+import Content from '@/features/home/components/Content';
+import { useGetProducts } from '@/features/home/hooks/api';
+import { Loading, NotFound } from '@/features/ui/components/Status';
+import React from 'react';
+import { useSearchParams } from 'next/navigation';
+import { PaginationWithLinks } from '@/features/ui/components/PaginationWithLinks';
 
 const HomePage = () => {
+  const searchParams = useSearchParams();
+  const page = parseInt(searchParams.get('page') ?? '1');
+  const pageSize = parseInt(searchParams.get('pageSize') ?? '20');
+  const { data, isLoading } = useGetProducts({ page, perPage: pageSize });
+
   return (
     <>
-      <Content></Content>
-      <PaginationPage></PaginationPage>
+      {isLoading ? (
+        <Loading label="loading..." />
+      ) : !data ? (
+        <NotFound label="No categories found" />
+      ) : (
+        <>
+          <Content products={data.data} />
+          <PaginationWithLinks
+            page={page}
+            pageSize={pageSize}
+            totalCount={data.pagination.total}
+          />
+        </>
+      )}
     </>
   );
 };
