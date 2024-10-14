@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/features/ui/components/Header';
 import Footer from '@/features/ui/components/Footer';
 import { ThemeProvider } from '@/features/ui/components/ThemeProvider';
+import ClientProviders from '@/features/shared/components/ClientProviders';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -29,7 +30,7 @@ export default function RootLayout({
           <div className="flex min-h-screen w-full flex-col">
             <Header />
             <main className="flex flex-1 flex-col gap-4 bg-stone-200 p-4 dark:bg-stone-700 md:gap-8 md:p-10">
-              {children}
+              <ClientProviders>{children}</ClientProviders>
             </main>
             <Footer></Footer>
           </div>

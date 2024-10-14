@@ -1,0 +1,121 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}
+
+enum OrderPaymentMethod {
+  CASH
+  BANK_TRANSFER
+}
+
+enum InvoiceStatus {
+  PENDING
+  PAID
+}
+
+enum DeliveryStatus {
+  PENDING
+  DELIVERED
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String
+  telephone String
+  image     String?
+  role      UserRole @default(USER) // USER, ADMIN
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Order     Order[]
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  name      String    @unique
+  slug      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  Product   Product[]
+}
+
+model Product {
+  id          String      @id @default(cuid())
+  name        String      @unique
+  slug        String
+  description String
+  price       Float
+  status      Boolean
+  image       String
+  categoryId  String
+  category    Category    @relation(fields: [categoryId], references: [id])
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  OrderItem   OrderItem[]
+}
+
+model Order {
+  id            String             @id @default(cuid())
+  status        OrderStatus        @default(PENDING) // PENDING, CONFIRMED, CANCELLED
+  paymentMethod OrderPaymentMethod @default(CASH) // CASH, BANK_TRANSFER
+  userId        String
+  user          User               @relation(fields: [userId], references: [id])
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+  OrderItem     OrderItem[]
+  Invoice       Invoice[]
+  Delivery      Delivery[]
+}
+
+model OrderItem {
+  id           String   @id @default(cuid())
+  orderId      String
+  order        Order    @relation(fields: [orderId], references: [id])
+  productId    String
+  product      Product  @relation(fields: [productId], references: [id])
+  productPrice Float
+  quantity     Int      @default(1)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([orderId, productId])
+}
+
+model Invoice {
+  id         String        @id @default(cuid())
+  image      String?
+  status     InvoiceStatus @default(PENDING) // PENDING, PAID
+  totalPrice Float
+  orderId    String
+  order      Order         @relation(fields: [orderId], references: [id])
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+}
+
+model Delivery {
+  id        String         @id @default(cuid())
+  status    DeliveryStatus @default(PENDING) // PENDING, DELIVERED
+  orderId   String
+  order     Order          @relation(fields: [orderId], references: [id])
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+}
