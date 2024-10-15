@@ -28,143 +28,31 @@ const Cart = () => {
         <Separator />
         <ScrollArea className="rounded-md border p-4">
           <div className="flex flex-grow flex-col gap-4">
-            <div className="flex items-center justify-between">
-              <div className="relative h-20 w-20">
-                <Image
-                  src="/images/photo.png"
-                  alt="product"
-                  fill
-                  className="rounded-full border-2 border-solid"
-                  sizes="(min-width: 800px) 50vw, 100vw"
+            <div className="flex flex-col">
+              <div className="flex items-center justify-between">
+                <div className="relative h-20 w-20">
+                  <Image
+                    src="/images/photo.png"
+                    alt="product"
+                    fill
+                    className="rounded-full border-2 border-solid"
+                    sizes="(min-width: 800px) 50vw, 100vw"
+                  />
+                </div>
+                <span>Product 1</span>
+                <Input
+                  type="number"
+                  min="1"
+                  defaultValue="1"
+                  className="w-16 rounded-full border-2 border-solid text-center"
                 />
+                <Trash2 className="cursor-pointer" />
               </div>
-              <span>Product 1</span>
-              <Input
-                type="number"
-                min="1"
-                defaultValue="1"
-                className="w-16 rounded-full border-2 border-solid text-center"
-              />
-              <Trash2 className="cursor-pointer" />
-            </div>
-            <div className="flex items-center justify-end text-sm">
-              <p>Price: ฿10.00</p>
+              <div className="flex items-center justify-end text-sm">
+                <p>Price: ฿10.00</p>
+              </div>
             </div>
             <Separator />
-            <div className="flex items-center justify-between">
-              <div className="relative h-20 w-20">
-                <Image
-                  src="/images/photo.png"
-                  alt="product"
-                  fill
-                  className="rounded-full border-2 border-solid"
-                  sizes="(min-width: 800px) 50vw, 100vw"
-                />
-              </div>
-              <span>Product 2</span>
-              <Input
-                type="number"
-                min="1"
-                defaultValue="1"
-                className="w-16 rounded-full border-2 border-solid text-center"
-              />
-              <Trash2 className="cursor-pointer" />
-            </div>
-            <div className="flex items-center justify-end text-sm">
-              <p>Price: ฿10.00</p>
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between">
-              <div className="relative h-20 w-20">
-                <Image
-                  src="/images/photo.png"
-                  alt="product"
-                  fill
-                  className="rounded-full border-2 border-solid"
-                  sizes="(min-width: 800px) 50vw, 100vw"
-                />
-              </div>
-              <span>Product 3</span>
-              <Input
-                type="number"
-                min="1"
-                defaultValue="1"
-                className="w-16 rounded-full border-2 border-solid text-center"
-              />
-              <Trash2 className="cursor-pointer" />
-            </div>
-            <div className="flex items-center justify-end text-sm">
-              <p>Price: ฿10.00</p>
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between">
-              <div className="relative h-20 w-20">
-                <Image
-                  src="/images/photo.png"
-                  alt="product"
-                  fill
-                  className="rounded-full border-2 border-solid"
-                  sizes="(min-width: 800px) 50vw, 100vw"
-                />
-              </div>
-              <span>Product 4</span>
-              <Input
-                type="number"
-                min="1"
-                defaultValue="1"
-                className="w-16 rounded-full border-2 border-solid text-center"
-              />
-              <Trash2 className="cursor-pointer" />
-            </div>
-            <div className="flex items-center justify-end text-sm">
-              <p>Price: ฿10.00</p>
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between">
-              <div className="relative h-20 w-20">
-                <Image
-                  src="/images/photo.png"
-                  alt="product"
-                  fill
-                  className="rounded-full border-2 border-solid"
-                  sizes="(min-width: 800px) 50vw, 100vw"
-                />
-              </div>
-              <span>Product 5</span>
-              <Input
-                type="number"
-                min="1"
-                defaultValue="1"
-                className="w-16 rounded-full border-2 border-solid text-center"
-              />
-              <Trash2 className="cursor-pointer" />
-            </div>
-            <div className="flex items-center justify-end text-sm">
-              <p>Price: ฿10.00</p>
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between">
-              <div className="relative h-20 w-20">
-                <Image
-                  src="/images/photo.png"
-                  alt="product"
-                  fill
-                  className="rounded-full border-2 border-solid"
-                  sizes="(min-width: 800px) 50vw, 100vw"
-                />
-              </div>
-              <span>Product 6</span>
-              <Input
-                type="number"
-                min="1"
-                defaultValue="1"
-                className="w-16 rounded-full border-2 border-solid text-center"
-              />
-              <Trash2 className="cursor-pointer" />
-            </div>
-            <div className="flex items-center justify-end text-sm">
-              <p>Price: ฿10.00</p>
-            </div>
           </div>
         </ScrollArea>
 

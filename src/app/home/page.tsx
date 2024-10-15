@@ -10,7 +10,7 @@ import { PaginationWithLinks } from '@/features/ui/components/PaginationWithLink
 const HomePage = () => {
   const searchParams = useSearchParams();
   const page = parseInt(searchParams.get('page') ?? '1');
-  const pageSize = parseInt(searchParams.get('pageSize') ?? '20');
+  const pageSize = 10;
   const { data, isLoading } = useGetProducts({ page, perPage: pageSize });
 
   return (
@@ -18,7 +18,7 @@ const HomePage = () => {
       {isLoading ? (
         <Loading label="loading..." />
       ) : !data ? (
-        <NotFound label="No categories found" />
+        <NotFound label="No products found" />
       ) : (
         <>
           <Content products={data.data} />

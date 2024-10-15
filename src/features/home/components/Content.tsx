@@ -14,11 +14,11 @@ const Content = ({ products }: { products: ProductList[] }) => {
   return (
     <div className="mx-auto grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-3 md:gap-8 lg:grid-cols-5 lg:gap-10 xl:w-[90%]">
       {products.map((product) => (
-        <Card key={product.id}>
+        <Card key={product.id} className="flex h-full flex-col">
           <CardHeader>
             <CardTitle>{product.name}</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex-grow">
             <div className="relative h-40 w-full">
               <Image
                 src={product.image}
@@ -31,7 +31,8 @@ const Content = ({ products }: { products: ProductList[] }) => {
             <p className="pt-4">{product.category.name}</p>
             <CardDescription>{product.description}</CardDescription>
           </CardContent>
-          <CardFooter className="justify-end">
+          <CardFooter className="mt-auto flex justify-between">
+            <span>{product.price}</span>
             <Button>Add Cart</Button>
           </CardFooter>
         </Card>

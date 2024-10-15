@@ -1,3 +1,5 @@
+'use client';
+
 import { CircleUser, Menu, Search, Package2 } from 'lucide-react';
 import Link from 'next/link';
 import {
@@ -17,8 +19,11 @@ import {
 } from '@/features/shadcn/components/ui/dropdown-menu';
 import { ModeToggle } from '@/features/ui/components/ModeToggle';
 import Cart from '@/features/ui/components/Cart';
+import { useGetCategories } from '@/features/categories/hooks/api';
+import { Loading, NotFound } from '@/features/ui/components/Status';
 
 const Header = () => {
+  const { data, isLoading } = useGetCategories({ page: 1, perPage: 100 });
   return (
     <header className="sticky top-0 z-50 flex h-16 items-center gap-4 bg-background px-4 md:px-6">
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
@@ -41,12 +46,23 @@ const Header = () => {
             </button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start">
-            <DropdownMenuItem>
-              <Link href={'/tea'}>Sign in</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link href={'/juice'}>Sign up</Link>
-            </DropdownMenuItem>
+            {isLoading ? (
+              <DropdownMenuItem className="cursor-wait">
+                <Loading label="loading.." />
+              </DropdownMenuItem>
+            ) : !data ? (
+              <DropdownMenuItem className="cursor-not-allowed">
+                <NotFound label="No categories found" />
+              </DropdownMenuItem>
+            ) : (
+              data.data.map((category) => (
+                <Link href={`/categories/${category.slug}`} key={category.id}>
+                  <DropdownMenuItem className="cursor-pointer">
+                    {category.name}
+                  </DropdownMenuItem>
+                </Link>
+              ))
+            )}
           </DropdownMenuContent>
         </DropdownMenu>
       </nav>
@@ -60,39 +76,47 @@ const Header = () => {
         <SheetContent side="left">
           <nav className="grid gap-6 text-lg font-medium">
             <Link
-              href="#"
+              href="/home"
               className="flex items-center gap-2 text-lg font-semibold"
             >
               <Package2 className="h-6 w-6" />
               <span className="sr-only">Acme Inc</span>
             </Link>
             <Link
-              href="#"
+              href="/home"
               className="text-muted-foreground hover:text-foreground"
             >
-              Dashboard
+              Home
             </Link>
-            <Link
-              href="#"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Orders
-            </Link>
-            <Link
-              href="#"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Products
-            </Link>
-            <Link
-              href="#"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Customers
-            </Link>
-            <Link href="#" className="hover:text-foreground">
-              Settings
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="text-left font-medium text-muted-foreground hover:text-foreground">
+                  Categories
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                {isLoading ? (
+                  <DropdownMenuItem className="cursor-wait">
+                    <Loading label="loading.." />
+                  </DropdownMenuItem>
+                ) : !data ? (
+                  <DropdownMenuItem className="cursor-not-allowed">
+                    <NotFound label="No categories found" />
+                  </DropdownMenuItem>
+                ) : (
+                  data.data.map((category) => (
+                    <Link
+                      href={`/categories/${category.slug}`}
+                      key={category.id}
+                    >
+                      <DropdownMenuItem className="cursor-pointer">
+                        {category.name}
+                      </DropdownMenuItem>
+                    </Link>
+                  ))
+                )}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
         </SheetContent>
       </Sheet>
@@ -119,12 +143,12 @@ const Header = () => {
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <Link href={'/login'}>Sign in</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link href={'/register'}>Sign up</Link>
-            </DropdownMenuItem>
+            <Link href={'/login'}>
+              <DropdownMenuItem>Sign in</DropdownMenuItem>
+            </Link>
+            <Link href={'/register'}>
+              <DropdownMenuItem>Sign up</DropdownMenuItem>
+            </Link>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
