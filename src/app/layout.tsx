@@ -5,6 +5,7 @@ import Header from '@/features/ui/components/Header';
 import Footer from '@/features/ui/components/Footer';
 import { ThemeProvider } from '@/features/ui/components/ThemeProvider';
 import ClientProviders from '@/features/shared/components/ClientProviders';
+import { Toaster } from '@/features/shadcn/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -36,6 +37,7 @@ export default function RootLayout({
               <Footer></Footer>
             </ClientProviders>
           </div>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

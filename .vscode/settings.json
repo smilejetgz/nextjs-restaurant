@@ -34,6 +34,9 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": ["clsx", "lucide", "signin"]
   // "github.copilot.enable": {
-  //   "typescript": false
+  //   "typescript": false,
+  //   "javascript": false,
+  //   "typescriptreact": false,
+  //   "javascriptreact": false
   // }
 }

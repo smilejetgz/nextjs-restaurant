@@ -1,6 +1,6 @@
 'use client';
 
-import { CircleUser, Menu, Search, Package2 } from 'lucide-react';
+import { Menu, Search, Package2 } from 'lucide-react';
 import Link from 'next/link';
 import {
   Sheet,
@@ -13,14 +13,13 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/features/shadcn/components/ui/dropdown-menu';
 import { ModeToggle } from '@/features/ui/components/ModeToggle';
 import Cart from '@/features/ui/components/Cart';
 import { useGetCategories } from '@/features/categories/hooks/api';
 import { Loading, NotFound } from '@/features/ui/components/Status';
+import AuthMenu from '@/features/auth/components/AuthMenu';
 
 const Header = () => {
   const { data, isLoading } = useGetCategories({ page: 1, perPage: 100 });
@@ -28,13 +27,13 @@ const Header = () => {
     <header className="sticky top-0 z-50 flex h-16 items-center gap-4 bg-background px-4 md:px-6">
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <Link
-          href="/home"
+          href="/"
           className="text-1xl flex items-center gap-2 text-nowrap font-semibold md:text-xl"
         >
           Name of business
         </Link>
         <Link
-          href="/home"
+          href="/"
           className="text-muted-foreground transition-colors hover:text-foreground"
         >
           Home
@@ -133,24 +132,7 @@ const Header = () => {
         </form>
         <Cart />
         <ModeToggle />
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="secondary" size="icon" className="rounded-full">
-              <CircleUser className="h-5 w-5" />
-              <span className="sr-only">Toggle user menu</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <Link href={'/login'}>
-              <DropdownMenuItem>Sign in</DropdownMenuItem>
-            </Link>
-            <Link href={'/register'}>
-              <DropdownMenuItem>Sign up</DropdownMenuItem>
-            </Link>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <AuthMenu />
       </div>
     </header>
   );
