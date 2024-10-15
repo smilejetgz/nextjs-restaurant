@@ -12,7 +12,7 @@ import { type ProductList } from '@/features/home/types';
 
 const Content = ({ products }: { products: ProductList[] }) => {
   return (
-    <div className="mx-auto grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-3 md:gap-8 lg:grid-cols-5 lg:gap-10 xl:w-[90%]">
+    <div className="mx-auto grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-10 xl:w-[90%] xl:grid-cols-5">
       {products.map((product) => (
         <Card key={product.id} className="flex h-full flex-col">
           <CardHeader>
