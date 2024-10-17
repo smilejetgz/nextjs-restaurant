@@ -1,14 +1,14 @@
 import { LoaderCircle, Grid2x2X } from 'lucide-react';
 
 interface StatusProps {
-  label?: string;
+  label?: string | null;
 }
 
 export const Loading = ({ label }: StatusProps) => {
   return (
     <div className="flex animate-pulse items-center justify-center p-4">
       <LoaderCircle className="animate-spin text-2xl" />
-      <span className="ml-3">{label}</span>
+      {label && <span className="ml-3">{label}</span>}
     </div>
   );
 };

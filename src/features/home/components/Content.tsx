@@ -1,4 +1,3 @@
-import { Button } from '@/features/shadcn/components/ui/button';
 import {
   Card,
   CardContent,
@@ -9,6 +8,7 @@ import {
 } from '@/features/shadcn/components/ui/card';
 import Image from 'next/image';
 import { type ProductList } from '@/features/home/types';
+import AddCartItem from '@/features/cart/AddCartItem';
 
 const Content = ({ products }: { products: ProductList[] }) => {
   return (
@@ -32,8 +32,8 @@ const Content = ({ products }: { products: ProductList[] }) => {
             <CardDescription>{product.description}</CardDescription>
           </CardContent>
           <CardFooter className="mt-auto flex justify-between">
-            <span>{product.price}</span>
-            <Button>Add Cart</Button>
+            <p>${product.price}</p>
+            <AddCartItem productId={product.id} />
           </CardFooter>
         </Card>
       ))}

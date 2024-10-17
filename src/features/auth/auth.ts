@@ -59,12 +59,25 @@ export const authOptions = {
 
       return token;
     },
+    session({ session, token }) {
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: token.sub,
+          role: token.role,
+          name: token.name,
+          email: token.email,
+          image: token.picture,
+        },
+      };
+    },
   },
   providers: [
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        email: { label: 'Email', type: 'email' },
+        email: { label: 'Email', type: 'email ' },
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {

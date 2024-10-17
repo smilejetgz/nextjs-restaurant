@@ -5,13 +5,18 @@ import { useGetProducts } from '@/features/home/hooks/api';
 import { Loading, NotFound } from '@/features/ui/components/Status';
 import React from 'react';
 import { useSearchParams } from 'next/navigation';
-import { PaginationWithLinks } from '@/features/ui/components/PaginationWithLinks';
+import { PaginationComponent } from '@/features/ui/components/PaginationLink';
 
 const HomePage = () => {
   const searchParams = useSearchParams();
   const page = parseInt(searchParams.get('page') ?? '1');
+  const category = searchParams.get('category') ?? undefined;
   const pageSize = 10;
-  const { data, isLoading } = useGetProducts({ page, perPage: pageSize });
+  const { data, isLoading } = useGetProducts({
+    page,
+    perPage: pageSize,
+    category,
+  });
 
   return (
     <>
@@ -22,11 +27,9 @@ const HomePage = () => {
       ) : (
         <>
           <Content products={data.data} />
-          <PaginationWithLinks
-            page={page}
-            pageSize={pageSize}
-            totalCount={data.pagination.total}
-          />
+          {data.pagination && (
+            <PaginationComponent pageCount={data.pagination.totalPages} />
+          )}
         </>
       )}
     </>

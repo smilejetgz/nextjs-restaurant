@@ -22,7 +22,7 @@ const ProtectedRoute = ({ roles, children }: ProtectedRouteProps) => {
     if (status === 'loading') return;
     if (status === 'unauthenticated') {
       toast({ description: 'Please login before' });
-      router.replace('/auth/sign-in');
+      router.replace('/auth/login');
       return;
     }
     if (!roles) return setIsAllowed(true);

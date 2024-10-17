@@ -45,8 +45,8 @@ const AuthForm = ({ kind, onSubmit }: AuthFormProps) => {
     defaultValues:
       kind === 'login'
         ? {
-            email: '',
-            password: '',
+            email: 'admin@admin.com',
+            password: 'password',
           }
         : {
             name: '',

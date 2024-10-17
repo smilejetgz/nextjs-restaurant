@@ -1,6 +1,7 @@
 import { type Prisma, PrismaClient } from '@prisma/client';
 import { faker } from '@faker-js/faker';
 import { slugify } from '@/features/shared/helpers/slugify';
+import bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
@@ -13,7 +14,7 @@ async function main() {
       email: 'admin@admin.com',
       name: 'Admin',
       role: 'ADMIN',
-      password: 'securepassword',
+      password: await bcrypt.hash('password', 12),
       telephone: '1234567890',
     },
   });
@@ -27,7 +28,7 @@ async function main() {
       email: faker.internet.email(),
       name: faker.internet.displayName(),
       role: 'USER',
-      password: 'securepassword',
+      password: await bcrypt.hash('password', 12),
       telephone: faker.phone.number(),
     };
 
@@ -70,7 +71,6 @@ async function main() {
       slug: slugify(name),
       price: parseFloat(faker.commerce.price()),
       description: faker.commerce.productDescription(),
-      status: faker.datatype.boolean(),
       image: faker.image.url(),
       category: { connect: { id: faker.helpers.arrayElement(categoryIds) } },
     };
@@ -81,7 +81,7 @@ async function main() {
       create: createProductInput,
     });
 
-    if (product.status !== false) productIds.push(product.id);
+    productIds.push(product.id);
   }
 
   // Create Orders

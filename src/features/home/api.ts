@@ -1,16 +1,28 @@
 import db from '@/features/shared/db';
 
-export const findAll = async ({ page = 1, perPage = 10 }) => {
-  try {
-    const products = await db.product.findMany({
-      take: perPage,
-      skip: (page - 1) * perPage,
-      include: {
-        category: true,
-      },
-    });
+interface FindAllParams {
+  page: number;
+  perPage: number;
+  category?: string;
+}
 
-    const totalProducts = await db.product.count();
+export const findAll = async ({ page, perPage, category }: FindAllParams) => {
+  try {
+    const where =
+      category !== 'undefined' ? { category: { slug: category } } : {};
+    const [products, totalProducts] = await Promise.all([
+      db.product.findMany({
+        take: perPage,
+        skip: (page - 1) * perPage,
+        include: {
+          category: true,
+        },
+        where,
+      }),
+      db.product.count({
+        where,
+      }),
+    ]);
 
     return {
       pagination: {

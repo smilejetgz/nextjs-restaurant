@@ -5,18 +5,23 @@ import { type ReactNode } from 'react';
 
 interface ProtectedResourceProps {
   roles?: UserRole[];
+  label?: string | null;
   children: ReactNode;
 }
 
-const ProtectedResource = ({ roles, children }: ProtectedResourceProps) => {
+const ProtectedResource = ({
+  roles,
+  label = 'loading...',
+  children,
+}: ProtectedResourceProps) => {
   const { data: session, status } = useSession();
 
   if (status === 'loading')
-    return (
+    return label ? (
       <div className="flex min-h-screen items-center justify-center">
-        <Loading label="loading..." />
+        <Loading label={label} />
       </div>
-    );
+    ) : null;
   if (status === 'unauthenticated') return null;
   if (
     status === 'authenticated' &&
