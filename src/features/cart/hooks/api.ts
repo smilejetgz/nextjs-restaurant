@@ -29,3 +29,16 @@ export const useAddCartItem = (productId: string) => {
     },
   });
 };
+
+export const useRemoveCartItem = (productId: string) => {
+  return useMutation({
+    mutationFn: async () => {
+      const res = await fetch(`/api/cart/${productId}`, {
+        method: 'DELETE',
+      });
+      const cart = await (res.json() as Promise<CartItem[]>);
+
+      return cart;
+    },
+  });
+};

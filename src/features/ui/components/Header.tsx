@@ -16,7 +16,7 @@ import {
   DropdownMenuTrigger,
 } from '@/features/shadcn/components/ui/dropdown-menu';
 import { ModeToggle } from '@/features/ui/components/ModeToggle';
-import Cart from '@/features/cart/Cart';
+import Cart from '@/features/cart/components/Cart';
 import { useGetCategories } from '@/features/categories/hooks/api';
 import { Loading, NotFound } from '@/features/ui/components/Status';
 import AuthMenu from '@/features/auth/components/AuthMenu';

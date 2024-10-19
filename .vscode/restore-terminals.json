@@ -1,0 +1,25 @@
+{
+  "runOnStartup": true,
+  "terminals": [
+    {
+      "splitTerminals": [
+        {
+          "name": "Docker",
+          "commands": ["docker compose up"]
+        },
+        {
+          "name": "Server",
+          "commands": ["pnpm dev"]
+        }
+      ]
+    },
+    {
+      "splitTerminals": [
+        {
+          "name": "Command",
+          "commands": ["clear"]
+        }
+      ]
+    }
+  ]
+}

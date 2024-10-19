@@ -8,7 +8,7 @@ import {
 } from '@/features/shadcn/components/ui/card';
 import Image from 'next/image';
 import { type ProductList } from '@/features/home/types';
-import AddCartItem from '@/features/cart/AddCartItem';
+import AddCartItem from '@/features/cart/components/AddCartItem';
 
 const Content = ({ products }: { products: ProductList[] }) => {
   return (
